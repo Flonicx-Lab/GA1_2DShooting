@@ -9,6 +9,16 @@ public class PlayerMove : MonoBehaviour
     private float rightBoundary = 2.4f;
     private float upBoundary = -0.6f;
     private float downBoundary = -5.2f;
+
+    private void SpeedUp()
+    {
+        Speed += 0.1f;
+    }
+
+    private void SpeedDown()
+    {
+        Speed -= 0.1f;
+    }
     
     
     // 매 프레임마다 실행된다.
@@ -24,11 +34,12 @@ public class PlayerMove : MonoBehaviour
         // 2. 키보드 입력에 따라 방향을 구한다.
         // 게임에는 벡터라는 타입이 있다. 벡터는(크기와 방향을 의미한다.)
         Vector2 direction = new Vector2(h, v);
+        Vector2 normalizedDirection = direction.normalized;
         
         // 3. 방향과 속도에 따라 이동한다.
         // 속도 = 방향 * 속력                        // 매직 넘버란: 보는 사람에 따라 의미가 달라질 수 있는 헷갈리는 숫자
 
-        Vector2 normalizedSpeed = (direction * Speed).normalized; // 벡터 길이를 1로 만들어주는 것(방향은 유지)
+        Vector2 speed = normalizedDirection * Speed; // 벡터 길이를 1로 만들어주는 것(방향은 유지)
         
         //transform.Translate(normalizedSpeed * Time.deltaTime);
         // deltaTime : 이전 프레임으로부터 지금 프레임까지 시간이 얼마나 지났는지 MS로 반환 (시간 / 프레임)
@@ -36,8 +47,22 @@ public class PlayerMove : MonoBehaviour
         // 새로운 위치 = 현재 위치 + v * t
         // transform.position +=  (Vector2)direction* normalizedSpeed * Time.deltaTime);
 
-        Vector2 nextPosition = (Vector2)transform.position + normalizedSpeed * Time.deltaTime;
+        Vector2 nextPosition = (Vector2)transform.position + speed * Time.deltaTime;
 
+        
+        // 스피드업 다운
+        if (Input.GetKey(KeyCode.E))
+        {
+            SpeedUp();
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            SpeedDown();
+        }
+        
+        
+        // 좌 우 경계에서 등장
         float buffer = 0.01f;
         if (nextPosition.x >= rightBoundary)
         {
@@ -48,6 +73,7 @@ public class PlayerMove : MonoBehaviour
             nextPosition.x = rightBoundary - buffer;
         }
         
+        // 위 아래 막아두기
         if (nextPosition.y >= downBoundary
             && nextPosition.y < upBoundary)
         {
@@ -59,4 +85,6 @@ public class PlayerMove : MonoBehaviour
 
 
     }
+    
+    
 }

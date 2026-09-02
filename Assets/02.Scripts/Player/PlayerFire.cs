@@ -13,11 +13,21 @@ public class PlayerFire : MonoBehaviour
     public Transform FirePoint2;
     public float FireCooltime;
     private float fireTimer = 0f;
-    
 
+    public bool AutoFire = false;
+
+
+    public void ToggleAutoFire()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            AutoFire = !AutoFire;
+        }
+    }
     private void Update()
     {
         Fire();
+        ToggleAutoFire();
         
     }
 
@@ -25,7 +35,7 @@ public class PlayerFire : MonoBehaviour
     {
         fireTimer += Time.deltaTime;
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || AutoFire)
         {
             if (fireTimer > FireCooltime)
             {

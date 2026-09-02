@@ -5,10 +5,10 @@ public class PlayerMove : MonoBehaviour
     // 목적 : 키보드 입력에 따라서 플레이어 이동 처리
     // 필요 필드:
     public float Speed;
-    private double leftBoundary = -2.36;
-    private double rightBoundary = 2.36;
-    private double upBoundary = -0.6;
-    private double downBoundary = -5.25;
+    private float leftBoundary = -2.4f;
+    private float rightBoundary = 2.4f;
+    private float upBoundary = -0.6f;
+    private float downBoundary = -5.2f;
     
     
     // 매 프레임마다 실행된다.
@@ -38,13 +38,17 @@ public class PlayerMove : MonoBehaviour
 
         Vector2 nextPosition = (Vector2)transform.position + normalizedSpeed * Time.deltaTime;
 
-
+        float buffer = 0.01f;
+        if (nextPosition.x >= rightBoundary)
+        {
+            nextPosition.x = leftBoundary + buffer;
+        }
+        else if (nextPosition.x <= leftBoundary)
+        {
+            nextPosition.x = rightBoundary - buffer;
+        }
         
-        
-
-        if (nextPosition.x >= leftBoundary
-            && nextPosition.x < rightBoundary
-            && nextPosition.y >= downBoundary
+        if (nextPosition.y >= downBoundary
             && nextPosition.y < upBoundary)
         {
             transform.position = nextPosition;

@@ -34,13 +34,22 @@ public class PlayerMove : MonoBehaviour
 
         Vector2 nextPosition = (Vector2)transform.position + normalizedSpeed * Time.deltaTime;
 
-        if (nextPosition.x >= -2.36
-            && nextPosition.x < 2.36
-            && nextPosition.y >= -5.25
-            && nextPosition.y < -0.6)
+        double leftBoundary = -2.36;
+        double rightBoundary = 2.36;
+        double upBoundary = -0.6;
+        double downBoundary = -5.25;
+        
+        
+
+        if (nextPosition.x >= leftBoundary
+            && nextPosition.x < rightBoundary
+            && nextPosition.y >= downBoundary
+            && nextPosition.y < upBoundary)
         {
             transform.position = nextPosition;
         }
+        
+        
 
 
 

@@ -63,14 +63,13 @@ public class PlayerMove : MonoBehaviour
         
         
         // 좌 우 경계에서 등장
-        float buffer = 0.01f;
-        if (nextPosition.x >= rightBoundary)
+        if (nextPosition.x > rightBoundary)
         {
-            nextPosition.x = leftBoundary + buffer;
+            nextPosition.x = leftBoundary;
         }
-        else if (nextPosition.x <= leftBoundary)
+        else if (nextPosition.x < leftBoundary)
         {
-            nextPosition.x = rightBoundary - buffer;
+            nextPosition.x = rightBoundary;
         }
         
         // 위 아래 막아두기

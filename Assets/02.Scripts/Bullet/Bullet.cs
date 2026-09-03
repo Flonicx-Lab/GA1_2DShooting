@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float MoveSpeed;
-
+    public float BulletDamage;
 
     private void Update()
     {
@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
         {
             // GetComponent<타입>() -> 게임 오브젝트가 가지고 있는 컴포넌트를 참조
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.Health -= 40;
+            enemy.Health -= BulletDamage;
             if (enemy.Health <= 0)
             {
                 // 너 죽자!

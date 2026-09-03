@@ -19,4 +19,6 @@
 ## or put your custom commands -------------------
 #echo 'Husky.Net is awesome!'
 
+export PATH="$PATH:/c/Program Files/dotnet"
+
 dotnet format GA1_2DShooting.sln --verify-no-changes --include Assets/02.Scripts/

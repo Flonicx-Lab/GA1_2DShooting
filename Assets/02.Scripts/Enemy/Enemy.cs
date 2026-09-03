@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float Speed;
 
-
     private void Update()
     {
-        Vector2 direction = Vector2.up; // new Vector2(1,0);
+        Vector2 direction = Vector2.down;
         transform.Translate(direction * Speed * Time.deltaTime);
+
     }
 }

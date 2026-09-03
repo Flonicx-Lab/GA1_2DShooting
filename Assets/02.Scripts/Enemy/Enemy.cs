@@ -7,6 +7,11 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        EnemyMove();
+    }
+
+    public virtual void EnemyMove()
+    {
         Vector2 direction = Vector2.down;
         transform.Translate(direction * MoveSpeed * Time.deltaTime);
     }

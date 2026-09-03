@@ -8,36 +8,41 @@ public class PlayerFire : MonoBehaviour
     // - 총알 프리팹
     public GameObject BulletPrefab;
     public GameObject SubBulletPrefab;
-    // - 생성 위치(총구)
-    public Transform FirePointRight;
-    public Transform FirePointLeft;
-    public Transform SubFirePointRight;
-    public Transform SubFirePointLeft;
     
+    // - 생성 위치(총구)
+    public Transform RightFirePointTransform;
+    public Transform LeftFirePointTransform;
+    public Transform RightSubFirePointTransform;
+    public Transform LeftSubFirePointTransform;
+    
+    // 타이머
     public float FireCooltime;
     private float fireTimer = 0f;
-    public bool AutoFire = false;
+    
+    // 자동 토글
+    public bool AutoFireMode = false;
 
-
-    public void ToggleAutoFire()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            AutoFire = !AutoFire;
-        }
-    }
     private void Update()
     {
         Fire();
-        ToggleAutoFire();
-        
+        ToggleAutoFireMode();
     }
-
+    
+    // 오토 Fire 토글
+    public void ToggleAutoFireMode()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            AutoFireMode = !AutoFireMode;
+        }
+    }
+    
+    // 총알 발사
     private void Fire()
     {
         fireTimer += Time.deltaTime;
         
-        if (Input.GetKeyDown(KeyCode.Space) || AutoFire)
+        if (Input.GetKeyDown(KeyCode.Space) || AutoFireMode)
         {
             if (fireTimer > FireCooltime)
             {
@@ -48,11 +53,14 @@ public class PlayerFire : MonoBehaviour
                 GameObject subBulletRight = Instantiate(SubBulletPrefab);
                 GameObject subBulletLeft = Instantiate(SubBulletPrefab);
             
-                bulletRight.transform.position = FirePointRight.position; // 생성한 총알의 위치를 나(플레이어)의 위치로
-                bulletLeft.transform.position = FirePointLeft.position;
-                subBulletRight.transform.position = SubFirePointRight.position;
-                subBulletLeft.transform.position = SubFirePointLeft.position;
-
+                
+                // 생성한 총알의 위치를 나(플레이어)의 위치로
+                bulletRight.transform.position = RightFirePointTransform.position;
+                bulletLeft.transform.position = LeftFirePointTransform.position;
+                subBulletRight.transform.position = RightSubFirePointTransform.position;
+                subBulletLeft.transform.position = LeftSubFirePointTransform.position;
+                
+                // 타이머 초기화
                 fireTimer = 0f;
             }
             

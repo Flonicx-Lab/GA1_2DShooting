@@ -6,10 +6,10 @@ public class PlayerMove : MonoBehaviour
     // 필요 필드:
     public float Speed;
     
-    public float leftBoundary;
-    public float rightBoundary;
-    public float upBoundary;
-    public float downBoundary;
+    public float minXPosition;
+    public float maxXPosition;
+    public float maxYPosition;
+    public float minYPosition;
 
     private void SpeedUp()
     {
@@ -68,18 +68,18 @@ public class PlayerMove : MonoBehaviour
         Vector2 nextPosition = (Vector2)transform.position + speed * Time.deltaTime;
         
         // 좌 우 경계에서 등장
-        if (nextPosition.x > rightBoundary)
+        if (nextPosition.x > maxXPosition)
         {
-            nextPosition.x = leftBoundary;
+            nextPosition.x = minXPosition;
         }
-        else if (nextPosition.x < leftBoundary)
+        else if (nextPosition.x < minXPosition)
         {
-            nextPosition.x = rightBoundary;
+            nextPosition.x = maxXPosition;
         }
         
         // 위 아래 막아두기
-        if (nextPosition.y > downBoundary
-            && nextPosition.y < upBoundary)
+        if (nextPosition.y > minYPosition 
+            && nextPosition.y < maxYPosition)
         {
             transform.position = nextPosition;
         }

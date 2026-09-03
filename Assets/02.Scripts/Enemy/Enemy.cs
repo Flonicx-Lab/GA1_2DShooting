@@ -1,18 +1,26 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    public float MoveSpeed;
-    public int Health = 100;
+    [SerializeField] protected float _moveSpeed;
+    [SerializeField] private int _health = 100;
 
     private void Update()
     {
-        EnemyMove();
+        Move();
     }
 
-    public virtual void EnemyMove()
+    protected abstract void Move();
+
+    public void TakeDamage(int damage)
     {
-        Vector2 direction = Vector2.down;
-        transform.Translate(direction * MoveSpeed * Time.deltaTime);
+        // 응집도는 높히고, 결합도는 낮춰라
+        // 결합도란 묻는 것
+        _health -= damage;
+        if (_health <= 0)
+        {
+            // 너 죽자!
+            Destroy(gameObject);
+        }
     }
 }

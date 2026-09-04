@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7d20f219204f646a12015c887659dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DownwardEnemy
-  moveSpeed: 2
-  health: 100
+  _moveSpeed: 2
+  _health: 100
   isHit: 0
-  defaultDamage: 30
+  _defaultDamage: 30

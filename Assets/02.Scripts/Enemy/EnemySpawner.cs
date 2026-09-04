@@ -4,7 +4,9 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float _spawnInterval = 3f;
     private float _timer;
-    [SerializeField] private Enemy _enemyPrefab;
+    [SerializeField] private Enemy _enemyDownwardPrefab;
+    [SerializeField] private Enemy _enemyAimedPrefab;
+    [SerializeField] private Enemy _enemyHomingPrefab;
 
     private void Update()
     {
@@ -22,8 +24,23 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (_enemyPrefab == null) return;
-        Enemy enemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity); //깜빡임 현상 방지, 위치와 회전값
-        enemy.transform.position = transform.position;
+        float random = Random.Range(0f, 1f);
+
+        Enemy enemyPrefab;
+
+        if (random < 0.5f)
+        {
+            enemyPrefab = _enemyDownwardPrefab;
+        }
+        else if (random < 0.8f)
+        {
+            enemyPrefab = _enemyAimedPrefab;
+        }
+        else
+        {
+            enemyPrefab = _enemyHomingPrefab;
+        }
+
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
     }
 }

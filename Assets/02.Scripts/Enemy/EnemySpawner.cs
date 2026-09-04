@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
         {
             _timer = 0;
 
+            _spawnInterval = Random.Range(1f, 3f);
+
             Spawn();
         }
     }

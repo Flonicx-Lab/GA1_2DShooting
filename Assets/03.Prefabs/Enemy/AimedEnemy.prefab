@@ -179,5 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165faa7b2c3623048b5031b2543e9a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimedEnemy
-  _moveSpeed: 2
-  _health: 100
+  moveSpeed: 2
+  health: 100
+  isHit: 0
+  defaultDamage: 30

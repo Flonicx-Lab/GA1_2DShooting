@@ -4,6 +4,9 @@ public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected float _moveSpeed;
     [SerializeField] private int _health = 100;
+    public bool isHit = false;
+    [SerializeField] private int _defaultDamage = 30; // 값 자체는 숨기기
+    public int Damage => _defaultDamage; // 데미지 자체는 public으로
 
     private void Update()
     {
@@ -14,13 +17,15 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // 응집도는 높히고, 결합도는 낮춰라
-        // 결합도란 묻는 것
         _health -= damage;
         if (_health <= 0)
         {
-            // 너 죽자!
             Destroy(gameObject);
         }
+    }
+
+    public void ContactPlayer()
+    {
+        Destroy(gameObject);
     }
 }

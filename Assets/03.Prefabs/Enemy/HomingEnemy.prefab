@@ -179,5 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80961117859958b4287560c99a66c912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
-  _moveSpeed: 0
-  _health: 100
+  moveSpeed: 2
+  health: 100
+  isHit: 0
+  defaultDamage: 30

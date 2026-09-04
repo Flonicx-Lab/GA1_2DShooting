@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void Update()
     {
+        Move();
     }
 
     protected abstract void Move();
@@ -29,7 +30,7 @@ public abstract class Enemy : MonoBehaviour
 
         Player player = other.GetComponent<Player>();
 
-        if (player != null)
+        if (player == null)
         {
             Debug.Log("플레이어가 null입니다.");
             return;

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    protected GameObject _player;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] private int _health = 100;
-    public bool isHit = false;
-    [SerializeField] private int _defaultDamage = 30; // 값 자체는 숨기기
+    [SerializeField] protected int _defaultDamage = 30; // 값 자체는 숨기기
     public int Damage => _defaultDamage; // 데미지 자체는 public으로
 
     private void Update()
@@ -24,8 +24,15 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public void ContactPlayer()
+    private void ONTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag("Player")) return;
+
+        Player player = other.GetComponent<Player>();
+
+        if (player != null) return;
+
+        player.TakeDamage(_defaultDamage);
         Destroy(gameObject);
     }
 }

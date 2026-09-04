@@ -12,6 +12,7 @@ public class HomingEnemy : Enemy
 
     protected override void Move()
     {
+        if (_player != null) return;
         // 방향 설정
         Vector2 direction = (_player.transform.position - transform.position).normalized;
         // 2. 방향과 속도에 맞게 이동한다.

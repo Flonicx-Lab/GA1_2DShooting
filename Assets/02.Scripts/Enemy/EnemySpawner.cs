@@ -4,9 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float _spawnInterval = 3f;
     private float _timer;
-    [SerializeField] private Enemy _enemyDownwardPrefab;
-    [SerializeField] private Enemy _enemyAimedPrefab;
-    [SerializeField] private Enemy _enemyHomingPrefab;
+    [SerializeField] private Enemy[] _enemyPrefabs;
 
     private void Update()
     {
@@ -24,23 +22,29 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        float random = Random.Range(0f, 1f);
+        // 50% [0] Downward
+        // 30% [1] Aimed
+        // 20% [2] Homing
 
-        Enemy enemyPrefab;
+        int enemyPrefabIndex = 0;
+        int randomPercent = UnityEngine.Random.Range(0, 100);
 
-        if (random > 0.5f)
+        //Todo: Scriptable Object를 사용해서 리팩토링
+        // 이유 1: 배열을 사용했지만 각 아이템이 어떤 프리팹인지 알수가 없음
+        // 이유 2: 각 애너미 스폰 확률을 매직 넘버로 하드코딩해서 유지보수가 어렵다.
+        if (randomPercent < 50)
         {
-            enemyPrefab = _enemyDownwardPrefab;
+            enemyPrefabIndex = 0;
         }
-        else if (random < 0.3f)
+        else if (randomPercent < 80)
         {
-            enemyPrefab = _enemyAimedPrefab;
+            enemyPrefabIndex = 1;
         }
         else
         {
-            enemyPrefab = _enemyHomingPrefab;
+            enemyPrefabIndex = 2;
         }
 
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        Enemy enemy = Instantiate(_enemyPrefabs[enemyPrefabIndex], transform.position, Quaternion.identity);
     }
 }

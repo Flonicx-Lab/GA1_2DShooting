@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &31305452208520131
+--- !u!1 &3469264158857243293
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1041784800489485332}
-  - component: {fileID: 6648463800942484274}
+  - component: {fileID: 1718564324766774717}
+  - component: {fileID: 9202001907686777938}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: ItemSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1041784800489485332
+--- !u!4 &1718564324766774717
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31305452208520131}
+  m_GameObject: {fileID: 3469264158857243293}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: -1.34153, y: 3.41586, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6648463800942484274
+--- !u!114 &9202001907686777938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31305452208520131}
+  m_GameObject: {fileID: 3469264158857243293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ea182609a91c95409ad2a583605261e, type: 3}
+  m_Script: {fileID: 11500000, guid: 766419c443f1e7144a2be78ea5bb68fa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  _spawnInterval: 3
-  _enemyPrefabs:
-  - {fileID: 8710615897145331209, guid: 82a094b51832d0540986bdee2fdf5497, type: 3}
-  - {fileID: 803906252709688417, guid: 64da537a8b92c30419e6c41845c6d027, type: 3}
-  - {fileID: 1942327789984389936, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
+  _itemPrefabs:
+  - {fileID: 6709161468968031888, guid: 014166f72f6d6ba4babefaeace12306d, type: 3}
+  - {fileID: 5103562681996265340, guid: cd60c87161d52364e8399430f8bf00a5, type: 3}
+  - {fileID: 6120490102242815003, guid: 67438810051e25e40908edd6b5db94f9, type: 3}

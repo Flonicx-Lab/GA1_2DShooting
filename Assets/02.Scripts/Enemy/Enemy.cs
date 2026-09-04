@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     protected GameObject _player;
+    [SerializeField] private ItemSpawner _itemSpawner;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] private int _health = 100;
     [SerializeField] protected int _defaultDamage = 30; // 값 자체는 숨기기
@@ -20,8 +21,14 @@ public abstract class Enemy : MonoBehaviour
         _health -= damage;
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            EnemyDie();
         }
+    }
+
+    public void EnemyDie()
+    {
+        _itemSpawner.SpawnItem(transform.position);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

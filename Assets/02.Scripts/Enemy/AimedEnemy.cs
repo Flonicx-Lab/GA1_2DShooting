@@ -7,7 +7,7 @@ public class AimedEnemy : Enemy
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");
-        if (_player != null)
+        if (_player == null)
         {
             Debug.Log("플레이어 태그를 찾지 못했습니다.");
         }

@@ -28,11 +28,11 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemyPrefab;
 
-        if (random < 0.5f)
+        if (random > 0.5f)
         {
             enemyPrefab = _enemyDownwardPrefab;
         }
-        else if (random < 0.8f)
+        else if (random < 0.3f)
         {
             enemyPrefab = _enemyAimedPrefab;
         }

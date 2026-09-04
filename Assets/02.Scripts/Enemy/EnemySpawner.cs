@@ -20,7 +20,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Enemy enemy = Instantiate(_enemyPrefab);
+        if (_enemyPrefab == null) return;
+        Enemy enemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity); //깜빡임 현상 방지, 위치와 회전값
         enemy.transform.position = transform.position;
     }
 }

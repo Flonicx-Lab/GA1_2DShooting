@@ -30,7 +30,11 @@ public abstract class Enemy : MonoBehaviour
 
         Player player = other.GetComponent<Player>();
 
-        if (player != null) return;
+        if (player != null)
+        {
+            Debug.Log("플레이어가 null입니다.");
+            return;
+        }
 
         player.TakeDamage(_defaultDamage);
         Destroy(gameObject);

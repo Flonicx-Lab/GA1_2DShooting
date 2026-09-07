@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2288818264761402357}
+  - component: {fileID: 1942327789984389936}
   - component: {fileID: 4000501470362565348}
   - component: {fileID: 5441400383814305407}
   - component: {fileID: 3453135720742120423}
-  - component: {fileID: 1942327789984389936}
   m_Layer: 8
   m_Name: HomingEnemy
   m_TagString: Enemy
@@ -35,6 +35,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1942327789984389936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048914334709311014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80961117859958b4287560c99a66c912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
+  _itemSpawner: {fileID: 9202001907686777938, guid: 140106443721f8a4782f00f14f7d834f, type: 3}
+  _moveSpeed: 2
+  _health: 100
+  _defaultDamage: 30
 --- !u!212 &4000501470362565348
 SpriteRenderer:
   serializedVersion: 2
@@ -167,19 +183,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1942327789984389936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048914334709311014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80961117859958b4287560c99a66c912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
-  _itemSpawner: {fileID: 9202001907686777938, guid: 140106443721f8a4782f00f14f7d834f, type: 3}
-  _moveSpeed: 2
-  _health: 100
-  _defaultDamage: 30

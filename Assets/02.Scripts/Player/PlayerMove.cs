@@ -2,84 +2,87 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    // 목적 : 키보드 입력에 따라서 플레이어 이동 처리
+    // 목적: 키보드 입력에 따라서 플레이어 이동 처리를 하고 싶다.
+
     // 필요 필드:
-    public float Speed;
+    [SerializeField] private float _speed;
+    public float MaxPositionY;
+    public float MinPositionY;
+    public float MaxPositionX;
+    public float MinPositionX;
 
-    public float MinXPosition;
-    public float MaxXPosition;
-    public float MaxYPosition;
-    public float MinYPosition;
-
-    private void SpeedUp()
-    {
-        Speed++;
-    }
-
-    private void SpeedDown()
-    {
-        Speed--;
-    }
-
-    public void Replay()
-    {
-    }
-
-    public void Record()
-    {
-    }
 
     // 매 프레임마다 실행된다.
-    // 초당 프레임 실행 횟수는 별다른 설정이 없을 경우 가능한 많이
+    // 초당 프레임 실행 횟수는: 별다른 설정이 없을 경우 가능한 많이
     private void Update()
     {
         Move();
+
         SpeedChange();
+    }
+
+    public void SpeedUp(float upValue)
+    {
+        if (upValue < 0)
+        {
+            Debug.LogWarning("속도 증가량은 0보다 작을 수 없습니다.");
+            return;
+        }
+
+        _speed += upValue;
+
+        // 최대 속도를 제한하는 등의 메서드를 추가할수도 있다.
+        /*if (_speed > MaxSpeed)
+        {
+            _speed = MaxSpeed;
+        }*/
     }
 
     private void SpeedChange()
     {
-        // 스피드업 다운 (E/Q)
+        // 7. Q/E 버튼 입력을 통한 스피드 업/다운
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SpeedUp();
+            _speed++;
         }
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
-            SpeedDown();
+            _speed--;
         }
     }
 
     private void Move()
     {
         // 1. 키보드 입력을 받는다.
-        float h = Input.GetAxisRaw("Horizontal"); // 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 ~ 1f 
-        float v = Input.GetAxisRaw("Vertical"); // 키보드 위/아래 입력 상태에 따라 -1f ~ 0 ~ 1f //Raw 는 더 빠르게 
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
         // 2. 키보드 입력에 따라 방향을 구한다.
-        Vector2 direction = new Vector2(h, v);
-        Vector2 normalizedDirection = direction.normalized;
+        Vector2 normalizedDirection = new Vector2(h, v).normalized;
 
-        // 3. 방향과 속도에 따라 이동한다.
-        Vector2 speed = normalizedDirection * Speed;
-        Vector2 nextPosition = (Vector2)transform.position + speed * Time.deltaTime;
+        // 3. 방향과 속력에 따라 이동한다.
+        Vector2 newPosition = transform.position + (Vector3)normalizedDirection * _speed * Time.deltaTime;
 
-        // 좌 우 경계에서 등장
-        if (nextPosition.x > MaxXPosition)
+        // 4. 위치 y에 제한이 있다.
+        if (newPosition.y > MaxPositionY)
         {
-            nextPosition.x = MinXPosition;
+            newPosition.y = MaxPositionY;
         }
-        else if (nextPosition.x < MinXPosition)
+        else if (newPosition.y < MinPositionY)
         {
-            nextPosition.x = MaxXPosition;
+            newPosition.y = MinPositionY;
         }
 
-        // 위 아래 막아두기
-        if (nextPosition.y > MinYPosition
-            && nextPosition.y < MaxYPosition)
+        // 5. 양 옆 끝으로 가면 반대쪽 방향으로 이동
+        if (newPosition.x > MaxPositionX)
         {
-            transform.position = nextPosition;
+            newPosition.x = MinPositionX;
         }
+        else if (newPosition.x < MinPositionX)
+        {
+            newPosition.x = MaxPositionX;
+        }
+
+        transform.position = newPosition;
     }
 }

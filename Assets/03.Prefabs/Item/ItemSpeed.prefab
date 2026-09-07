@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 518159632118331588}
   m_Layer: 10
   m_Name: ItemSpeed
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _itemSpeed: 6
   _itemFreezeTime: 0.3
+  Type: speed
 --- !u!212 &948564333484956088
 SpriteRenderer:
   serializedVersion: 2
@@ -98,7 +99,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.46415186, g: 0, b: 0.495283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

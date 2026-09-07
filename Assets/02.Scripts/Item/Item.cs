@@ -1,40 +1,81 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] float _itemSpeed;
-    [SerializeField] float _itemFreezeTime;
-    protected GameObject _player;
-    private float _timer = 0f;
+    [SerializeField] private ItemType _type;
+    [SerializeField] private float _healValue;
+    [SerializeField] private float _moveSpeedUpValue;
+    [SerializeField] private float _atkSpeedUpValue;
+
+    private const float WaitTime = 2f;
+    private float _waitTimer = 0f;
+    private const float MoveSpeed = 5f;
+
+    private Player _player = null;
+
 
     private void Start()
     {
-        _player = GameObject.FindWithTag("Player");
+        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        if (player == null)
+        {
+            Debug.LogWarning("플레이어를 찾을 수 없습니다.");
+            return;
+        }
     }
 
     private void Update()
     {
-        ItemMove();
+        _waitTimer += Time.deltaTime;
+        if (_waitTimer >= WaitTime)
+        {
+            FollowPlayer();
+        }
     }
 
-    protected void ItemMove()
+    private void FollowPlayer()
     {
-        _timer += Time.deltaTime;
-
-        if (_timer >= _itemFreezeTime)
+        if (_player == null)
         {
-            if (_player == null) return;
             Vector2 direction = (_player.transform.position - transform.position).normalized;
-            transform.Translate(direction * _itemSpeed * Time.deltaTime);
+            transform.Translate(direction * _moveSpeedUpValue * Time.deltaTime);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        Player player = other.GetComponent<Player>();
+        if (player == null)
         {
-            Destroy(gameObject);
+            Debug.LogWarning("플레이어 태그 오브젝트에 플레이어 컴포넌트가 없습니다.");
+            return;
         }
+
+        switch (_type)
+        {
+            case ItemType.Heal:
+                {
+                    player.Heal((int)(_healValue));
+                    break;
+                }
+
+            case ItemType.MoveSpeedUp:
+                {
+                    player.GetComponent<PlayerMove>().SpeedUp(_moveSpeedUpValue);
+                    break;
+                }
+
+            case ItemType.FireRateUp:
+                {
+                    // todo: 속성을 직접 수정하는게 아니라 메서드를 통한 수정
+                    player.GetComponent<PlayerFire>().AtkSpeedUp(_atkSpeedUpValue);
+                    break;
+                }
+        }
+
+        Destroy(gameObject);
     }
 }

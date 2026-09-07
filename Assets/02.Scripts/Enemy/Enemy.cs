@@ -3,12 +3,18 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     protected GameObject _player;
+    private Animator _animator;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] private int _health = 100;
     [SerializeField] protected int _defaultDamage = 30; // 값 자체는 숨기기
     public int Damage => _defaultDamage; // 데미지 자체는 public으로
 
     [SerializeField] protected Item[] _itemPrefabs;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -23,6 +29,13 @@ public abstract class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             EnemyDie();
+        }
+        else
+        {
+            if (_animator != null)
+            {
+                _animator.SetTrigger("isHit");
+            }
         }
     }
 

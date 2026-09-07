@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2288818264761402357}
   - component: {fileID: 803906252709688417}
   - component: {fileID: 4000501470362565348}
-  - component: {fileID: 5441400383814305407}
+  - component: {fileID: 3434178505701885222}
   - component: {fileID: 3453135720742120423}
   - component: {fileID: 7815007819439045915}
   m_Layer: 8
@@ -114,8 +114,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &5441400383814305407
-BoxCollider2D:
+--- !u!60 &3434178505701885222
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,8 +158,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.422647}
+      - {x: -0.5, y: 0.232059}
+      - {x: -0.35619572, y: 0.11532831}
+      - {x: -0.055789486, y: -0.5122137}
+      - {x: 0.068957716, y: -0.5}
+      - {x: 0.3697214, y: 0.13842106}
+      - {x: 0.5004879, y: 0.23872662}
+      - {x: 0.50407124, y: 0.422647}
+  m_UseDelaunayMesh: 1
 --- !u!50 &3453135720742120423
 Rigidbody2D:
   serializedVersion: 5
@@ -197,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 1048914334709311014}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4382292f400cb1f43b0b40697e1d9202, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

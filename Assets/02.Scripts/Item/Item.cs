@@ -7,18 +7,23 @@ public class Item : MonoBehaviour
     [SerializeField] private float _moveSpeedUpValue;
     [SerializeField] private float _atkSpeedUpValue;
 
-    private const float WaitTime = 2f;
+    private const float WaitTime = 0.5f;
     private float _waitTimer = 0f;
     private const float MoveSpeed = 5f;
 
-    private Player _player = null;
+    private Player _player;
 
 
     private void Start()
     {
-        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+        {
+            _player = playerObj.GetComponent<Player>();
+        }
 
-        if (player == null)
+
+        if (_player == null)
         {
             Debug.LogWarning("플레이어를 찾을 수 없습니다.");
             return;
@@ -36,10 +41,10 @@ public class Item : MonoBehaviour
 
     private void FollowPlayer()
     {
-        if (_player == null)
+        if (_player != null)
         {
             Vector2 direction = (_player.transform.position - transform.position).normalized;
-            transform.Translate(direction * _moveSpeedUpValue * Time.deltaTime);
+            transform.Translate(direction * MoveSpeed * Time.deltaTime);
         }
     }
 
@@ -74,7 +79,6 @@ public class Item : MonoBehaviour
 
             case ItemType.FireRateUp:
                 {
-                    // todo: 속성을 직접 수정하는게 아니라 메서드를 통한 수정
                     player.GetComponent<PlayerFire>().AtkSpeedUp(_atkSpeedUpValue);
                     break;
                 }

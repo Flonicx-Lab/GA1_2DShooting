@@ -64,23 +64,27 @@ public class PlayerMove : MonoBehaviour
         Vector2 newPosition = transform.position + (Vector3)normalizedDirection * _speed * Time.deltaTime;
 
         // 4. 위치 y에 제한이 있다.
-        if (newPosition.y > MaxPositionY)
+        float minY = Mathf.Min(MinPositionY, MaxPositionY);
+        float maxY = Mathf.Max(MinPositionY, MaxPositionY);
+        if (newPosition.y > maxY)
         {
-            newPosition.y = MaxPositionY;
+            newPosition.y = maxY;
         }
-        else if (newPosition.y < MinPositionY)
+        else if (newPosition.y < minY)
         {
-            newPosition.y = MinPositionY;
+            newPosition.y = minY;
         }
 
         // 5. 양 옆 끝으로 가면 반대쪽 방향으로 이동
-        if (newPosition.x > MaxPositionX)
+        float minX = Mathf.Min(MinPositionX, MaxPositionX);
+        float maxX = Mathf.Max(MinPositionX, MaxPositionX);
+        if (newPosition.x > maxX)
         {
-            newPosition.x = MinPositionX;
+            newPosition.x = minX;
         }
-        else if (newPosition.x < MinPositionX)
+        else if (newPosition.x < minX)
         {
-            newPosition.x = MaxPositionX;
+            newPosition.x = maxX;
         }
 
         transform.position = newPosition;

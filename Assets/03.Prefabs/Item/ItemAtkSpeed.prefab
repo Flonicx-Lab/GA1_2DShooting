@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d18b75a3062d834ab5a5df1dd0b6479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  _itemSpeed: 6
-  _itemFreezeTime: 0.3
-  Type: atkSpeed
+  _type: 0
+  _healValue: 0
+  _moveSpeedUpValue: 0
+  _atkSpeedUpValue: 0.1
 --- !u!212 &5360938434345356819
 SpriteRenderer:
   serializedVersion: 2

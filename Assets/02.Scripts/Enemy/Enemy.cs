@@ -3,11 +3,12 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     protected GameObject _player;
-    [SerializeField] private ItemSpawner _itemSpawner;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] private int _health = 100;
     [SerializeField] protected int _defaultDamage = 30; // 값 자체는 숨기기
     public int Damage => _defaultDamage; // 데미지 자체는 public으로
+
+    [SerializeField] protected Item[] _itemPrefabs;
 
     private void Update()
     {
@@ -25,9 +26,17 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    private void SpawnItem()
+    {
+        if (Random.Range(0, 100) > 30) return;
+
+        Instantiate(_itemPrefabs[Random.Range(0, _itemPrefabs.Length)], transform.position,
+            Quaternion.identity);
+    }
+
     public void EnemyDie()
     {
-        _itemSpawner.SpawnItem(transform.position);
+        SpawnItem();
         Destroy(gameObject);
     }
 

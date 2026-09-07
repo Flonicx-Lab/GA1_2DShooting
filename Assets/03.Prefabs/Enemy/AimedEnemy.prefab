@@ -47,10 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165faa7b2c3623048b5031b2543e9a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimedEnemy
-  _itemSpawner: {fileID: 9202001907686777938, guid: 140106443721f8a4782f00f14f7d834f, type: 3}
   _moveSpeed: 2
   _health: 100
   _defaultDamage: 30
+  _itemPrefabs:
+  - {fileID: 5103562681996265340, guid: cd60c87161d52364e8399430f8bf00a5, type: 3}
+  - {fileID: 6120490102242815003, guid: 67438810051e25e40908edd6b5db94f9, type: 3}
+  - {fileID: 6709161468968031888, guid: 014166f72f6d6ba4babefaeace12306d, type: 3}
 --- !u!212 &4000501470362565348
 SpriteRenderer:
   serializedVersion: 2

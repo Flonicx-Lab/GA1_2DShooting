@@ -6,10 +6,13 @@ public class PlayerFire : MonoBehaviour
     // 필요 속성
     // - 총알 프리팹
     public GameObject BulletPrefab;
+    public GameObject SubBulletPrefab;
 
     // - 생성 위치(총구)
     public Transform LeftFirePoint;
     public Transform RightFirePoint;
+    public Transform RightSubFirePointTransform;
+    public Transform LeftSubFirePointTransform;
 
     // - 쿨타이머
     public float CoolTime = 0.5f;
@@ -22,7 +25,6 @@ public class PlayerFire : MonoBehaviour
     {
         CoolTimer = CoolTime;
     }
-
 
     private void Update()
     {
@@ -66,5 +68,11 @@ public class PlayerFire : MonoBehaviour
 
         GameObject rightBullet = Instantiate(BulletPrefab);
         rightBullet.transform.position = RightFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
+
+        GameObject subBulletRight = Instantiate(SubBulletPrefab);
+        GameObject subBulletLeft = Instantiate(SubBulletPrefab);
+
+        subBulletRight.transform.position = RightSubFirePointTransform.position;
+        subBulletLeft.transform.position = LeftSubFirePointTransform.position;
     }
 }

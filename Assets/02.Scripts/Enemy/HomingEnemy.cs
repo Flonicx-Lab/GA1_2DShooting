@@ -13,13 +13,12 @@ public class HomingEnemy : Enemy
     {
         if (_player == null) return;
 
-        float dx = _player.transform.position.x - transform.position.x;
-        float dy = _player.transform.position.y - transform.position.y;
-        float degree = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+        Vector2 diff = _player.transform.position - transform.position;
+        float degree = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0f, 0f, degree + 90);
 
-        Vector2 _direction = new Vector2(dx, dy).normalized;
+        Vector2 _direction = new Vector2(diff.x, diff.y).normalized;
         transform.Translate(_direction * _moveSpeed * Time.deltaTime, Space.World);
     }
 }

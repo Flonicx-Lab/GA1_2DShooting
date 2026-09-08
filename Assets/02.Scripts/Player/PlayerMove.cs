@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -16,11 +17,14 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private float _maxMoveSpeed;
 
+    private TrailRenderer _trailRenderer;
+
     // 객체가 생성될 때 한 번 실행 된다.
     private void Awake()
     {
         // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
         _animator = GetComponent<Animator>();
+        _trailRenderer = GetComponentInChildren<TrailRenderer>();
     }
 
     // 매 프레임마다 실행된다.
@@ -94,16 +98,20 @@ public class PlayerMove : MonoBehaviour
             newPosition.y = minY;
         }
 
-        // 5. 양 옆 끝으로 가면 반대쪽 방향으로 이동
+        // 5. 양 옆 끝으로 가면 반대쪽 방향으로 순간이동 (워프)
         float minX = Mathf.Min(MinPositionX, MaxPositionX);
         float maxX = Mathf.Max(MinPositionX, MaxPositionX);
         if (newPosition.x > maxX)
         {
-            newPosition.x = minX;
+            transform.position = new Vector2(minX, newPosition.y);
+            _trailRenderer.Clear();
+            return;
         }
         else if (newPosition.x < minX)
         {
-            newPosition.x = maxX;
+            transform.position = new Vector2(maxX, newPosition.y);
+            _trailRenderer.Clear();
+            return;
         }
 
         transform.position = newPosition;

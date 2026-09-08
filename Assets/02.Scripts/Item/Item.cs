@@ -13,6 +13,8 @@ public class Item : MonoBehaviour
 
     private Player _player;
 
+    [SerializeField] private GameObject _itemEffectPrefab;
+
     private void Start()
     {
         GameObject playerObj = GameObject.FindWithTag("Player");
@@ -47,6 +49,11 @@ public class Item : MonoBehaviour
         }
     }
 
+    private void SpawnItemEffect(Vector2 spawnPosition)
+    {
+        Instantiate(_itemEffectPrefab, spawnPosition, Quaternion.identity);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
@@ -63,6 +70,7 @@ public class Item : MonoBehaviour
             case ItemType.Heal:
                 {
                     player.Heal((int)(_healValue));
+                    SpawnItemEffect(other.transform.position);
                     Debug.Log($"플레이어 체력: {player.Health}");
                     break;
                 }
@@ -71,6 +79,7 @@ public class Item : MonoBehaviour
                 {
                     PlayerMove playerMove = other.GetComponent<PlayerMove>();
                     playerMove.SpeedUp(_moveSpeedUpValue);
+                    SpawnItemEffect(other.transform.position);
                     Debug.Log($"플레이어 이동속도 : {playerMove.Speed}");
                     break;
                 }
@@ -79,6 +88,7 @@ public class Item : MonoBehaviour
                 {
                     PlayerFire playerFire = other.GetComponent<PlayerFire>();
                     playerFire.AtkSpeedUp(_atkSpeedUpValue);
+                    SpawnItemEffect(other.transform.position);
                     Debug.Log($"플레이어 공속 : {playerFire.CoolTimeAtkSpeed}");
                     break;
                 }

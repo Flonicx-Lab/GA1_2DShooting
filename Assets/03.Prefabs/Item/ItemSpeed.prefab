@@ -51,6 +51,7 @@ MonoBehaviour:
   _healValue: 0
   _moveSpeedUpValue: 1
   _atkSpeedUpValue: 0
+  ItemEffectPrefab: {fileID: 6710139492206580332, guid: 95b8d3d65b5d7f1409c4ed1723887826, type: 3}
 --- !u!212 &948564333484956088
 SpriteRenderer:
   serializedVersion: 2

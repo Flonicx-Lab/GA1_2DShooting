@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     // 데이터 은닉
     // 메서드를 통한 상태 변경
     [SerializeField] private int _health = 100;
+    [SerializeField] private GameObject _deatheffectPrefab;
 
     // 프로퍼티 문법
 
@@ -29,6 +30,11 @@ public class Player : MonoBehaviour
         return _health;
     }
 
+    private void SpawnDeathEffect()
+    {
+        Instantiate(_deatheffectPrefab, transform.position, Quaternion.identity);
+    }
+
 
     public void TakeDamage(int damage)
     {
@@ -41,6 +47,7 @@ public class Player : MonoBehaviour
         _health -= damage;
         if (_health <= 0)
         {
+            SpawnDeathEffect();
             Destroy(gameObject);
         }
     }

@@ -64,18 +64,23 @@ public class Item : MonoBehaviour
             case ItemType.Heal:
                 {
                     player.Heal((int)(_healValue));
+                    Debug.Log($"플레이어 체력: {player.Health}");
                     break;
                 }
 
             case ItemType.MoveSpeedUp:
                 {
-                    player.GetComponent<PlayerMove>().SpeedUp(_moveSpeedUpValue);
+                    PlayerMove playerMove = other.GetComponent<PlayerMove>();
+                    playerMove.SpeedUp(_moveSpeedUpValue);
+                    Debug.Log($"플레이어 이동속도 : {playerMove.Speed}");
                     break;
                 }
 
             case ItemType.FireRateUp:
                 {
-                    player.GetComponent<PlayerFire>().AtkSpeedUp(_atkSpeedUpValue);
+                    PlayerFire playerFire = other.GetComponent<PlayerFire>();
+                    playerFire.AtkSpeedUp(_atkSpeedUpValue);
+                    Debug.Log($"플레이어 공속 : {playerFire.CoolTimeAtkSpeed}");
                     break;
                 }
         }

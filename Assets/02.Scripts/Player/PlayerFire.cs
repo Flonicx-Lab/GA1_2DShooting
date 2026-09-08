@@ -15,8 +15,9 @@ public class PlayerFire : MonoBehaviour
     public Transform LeftSubFirePointTransform;
 
     // - 쿨타이머 (공속)
-    public float CoolTime = 0.5f;
-    public float CoolTimer = 0;
+    [SerializeField] private float _coolTime = 0.5f;
+    [SerializeField] private float _coolTimer = 0;
+    public float CoolTimeAtkSpeed => _coolTime;
     private float _maxAtkSpeed = 0.1f;
 
 
@@ -26,7 +27,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Start()
     {
-        CoolTimer = CoolTime;
+        _coolTimer = _coolTime;
     }
 
     private void Update()
@@ -38,16 +39,16 @@ public class PlayerFire : MonoBehaviour
         }
 
         // 0. 쿨타이머 감소
-        CoolTimer -= Time.deltaTime;
+        _coolTimer -= Time.deltaTime;
 
         // 1. 쿨타이머가 0초 이하이고 && (스페이스바를 누르거나 || 오토 모드라면)
-        if (CoolTimer <= 0 && (Input.GetKeyDown(KeyCode.Space) || AutoFireMode))
+        if (_coolTimer <= 0 && (Input.GetKeyDown(KeyCode.Space) || AutoFireMode))
         {
             // 2. 발사
             Fire();
 
             // 3. 쿨타이머 초기화
-            CoolTimer = CoolTime;
+            _coolTimer = _coolTime;
         }
     }
 
@@ -59,11 +60,11 @@ public class PlayerFire : MonoBehaviour
             return;
         }
 
-        CoolTime -= upValue;
+        _coolTime -= upValue;
 
-        if (CoolTime < _maxAtkSpeed)
+        if (_coolTime < _maxAtkSpeed)
         {
-            CoolTime = _maxAtkSpeed;
+            _coolTime = _maxAtkSpeed;
         }
     }
 

@@ -12,9 +12,14 @@ public class HomingEnemy : Enemy
     protected override void Move()
     {
         if (_player == null) return;
-        // 방향 설정
-        Vector2 direction = (_player.transform.position - transform.position).normalized;
-        // 2. 방향과 속도에 맞게 이동한다.
-        transform.Translate(direction * _moveSpeed * Time.deltaTime);
+
+        float dx = _player.transform.position.x - transform.position.x;
+        float dy = _player.transform.position.y - transform.position.y;
+        float degree = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0f, 0f, degree + 90);
+
+        Vector2 _direction = new Vector2(dx, dy).normalized;
+        transform.Translate(_direction * _moveSpeed * Time.deltaTime, Space.World);
     }
 }

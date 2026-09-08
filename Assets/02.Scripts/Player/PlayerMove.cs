@@ -7,13 +7,13 @@ public class PlayerMove : MonoBehaviour
     // 필요 필드:
     private Animator _animator;
 
-
     [SerializeField] private float _speed;
     public float MaxPositionY;
     public float MinPositionY;
     public float MaxPositionX;
     public float MinPositionX;
 
+    [SerializeField] private float _maxMoveSpeed;
 
     // 객체가 생성될 때 한 번 실행 된다.
     private void Awake()
@@ -41,11 +41,10 @@ public class PlayerMove : MonoBehaviour
 
         _speed += upValue;
 
-        // 최대 속도를 제한하는 등의 메서드를 추가할수도 있다.
-        /*if (_speed > MaxSpeed)
+        if (_speed > _maxMoveSpeed)
         {
-            _speed = MaxSpeed;
-        }*/
+            _speed = _maxMoveSpeed;
+        }
     }
 
     private void SpeedChange()

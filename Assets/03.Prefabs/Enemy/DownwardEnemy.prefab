@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DownwardEnemy
   _moveSpeed: 2
-  _health: 100
+  _health: 150
   _defaultDamage: 30
   _itemPrefabs:
   - {fileID: 5103562681996265340, guid: cd60c87161d52364e8399430f8bf00a5, type: 3}

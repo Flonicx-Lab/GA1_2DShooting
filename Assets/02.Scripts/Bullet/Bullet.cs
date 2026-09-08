@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int _bulletDamage;
     public int BulletDamage => _bulletDamage;
 
+
     private void Update()
     {
         Vector2 direction = Vector2.up; // new Vector2(1,0);

@@ -14,12 +14,15 @@ public class PlayerFire : MonoBehaviour
     public Transform RightSubFirePointTransform;
     public Transform LeftSubFirePointTransform;
 
-    // - 쿨타이머
+    // - 쿨타이머 (공속)
     public float CoolTime = 0.5f;
     public float CoolTimer = 0;
+    private float _maxAtkSpeed = 0.1f;
+
 
     // - 오토 모드
     public bool AutoFireMode = false;
+
 
     private void Start()
     {
@@ -50,13 +53,18 @@ public class PlayerFire : MonoBehaviour
 
     public void AtkSpeedUp(float upValue)
     {
-        if (upValue < 0)
+        if (upValue <= 0.05f)
         {
             Debug.LogWarning("공격속도 증가량은 0보다 작을 수 없습니다.");
             return;
         }
 
         CoolTime -= upValue;
+
+        if (CoolTime < _maxAtkSpeed)
+        {
+            CoolTime = _maxAtkSpeed;
+        }
     }
 
     private void Fire()

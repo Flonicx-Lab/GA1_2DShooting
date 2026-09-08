@@ -13,7 +13,6 @@ public class Item : MonoBehaviour
 
     private Player _player;
 
-
     private void Start()
     {
         GameObject playerObj = GameObject.FindWithTag("Player");

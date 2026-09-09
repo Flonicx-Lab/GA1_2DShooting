@@ -53,8 +53,8 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -64,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 28
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,12 +139,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Top
+      name: Backgrounds_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 143.66667
+        width: 144
         height: 288
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f9fb701b99a29a80800000000000000
-      internalID: -8461514266414155272
+      spriteID: cc8d6f539473de9408e065cc592b3028
+      internalID: -1271693880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Middle
+      name: Backgrounds_1
       rect:
         serializedVersion: 2
         x: 145
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d635c085f171e1900800000000000000
-      internalID: 656988019031298925
+      spriteID: a9346a0371593a946aa3af470c362f45
+      internalID: 983951547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bottom
+      name: Backgrounds_2
       rect:
         serializedVersion: 2
         x: 290
@@ -198,8 +198,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76da181894a6c9390800000000000000
-      internalID: -7810250789829366425
+      spriteID: 1dcb18a207403e34b83b384c0957cd4f
+      internalID: -975865334
       vertices: []
       indices: 
       edges: []
@@ -216,11 +216,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":144.0,"y":288.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":1.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Bottom: -7810250789829366425
-      Middle: 656988019031298925
-      Top: -8461514266414155272
+      Backgrounds_0: -1271693880
+      Backgrounds_1: 983951547
+      Backgrounds_2: -975865334
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8439074061454314018}
   - component: {fileID: 3453135720742120423}
   - component: {fileID: 7120928378641114753}
-  - component: {fileID: 5288045058984611601}
+  - component: {fileID: -1604073095996201519}
   m_Layer: 8
   m_Name: DownwardEnemy
   m_TagString: Enemy
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7d20f219204f646a12015c887659dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DownwardEnemy
+  _damagedAudioSource: {fileID: -1604073095996201519}
   _moveSpeed: 2
   _health: 150
   _defaultDamage: 30
@@ -230,7 +231,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!82 &5288045058984611601
+--- !u!82 &-1604073095996201519
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +242,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 63eeb2b6697100d469105e4ed5251a27, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2382f47ebffbc534c8f7f91fcef10023, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

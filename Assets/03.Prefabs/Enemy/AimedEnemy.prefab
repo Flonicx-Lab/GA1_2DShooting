@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3434178505701885222}
   - component: {fileID: 3453135720742120423}
   - component: {fileID: 7815007819439045915}
-  - component: {fileID: 8903810519931926200}
+  - component: {fileID: 4580631525827347486}
   m_Layer: 8
   m_Name: AimedEnemy
   m_TagString: Enemy
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165faa7b2c3623048b5031b2543e9a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimedEnemy
+  _damagedAudioSource: {fileID: 4580631525827347486}
   _moveSpeed: 2
   _health: 100
   _defaultDamage: 30
@@ -221,7 +222,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!82 &8903810519931926200
+--- !u!82 &4580631525827347486
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,7 +233,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 63eeb2b6697100d469105e4ed5251a27, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2382f47ebffbc534c8f7f91fcef10023, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

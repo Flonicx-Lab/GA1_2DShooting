@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
 
     private Player _player;
     private AudioSource _itemAudioSource;
+    [SerializeField] private AudioClip _pickupSound;
 
     [SerializeField] private GameObject _itemEffectPrefab;
 
@@ -73,6 +74,7 @@ public class Item : MonoBehaviour
                 {
                     player.Heal((int)(_healValue));
                     SpawnItemEffect(other.transform.position);
+                    AudioSource.PlayClipAtPoint(_pickupSound, Camera.main.transform.position); // 카메라 위치를 전달해야함
                     Debug.Log($"플레이어 체력: {player.Health}");
                     break;
                 }
@@ -82,6 +84,7 @@ public class Item : MonoBehaviour
                     PlayerMove playerMove = other.GetComponent<PlayerMove>();
                     playerMove.SpeedUp(_moveSpeedUpValue);
                     SpawnItemEffect(other.transform.position);
+                    AudioSource.PlayClipAtPoint(_pickupSound, Camera.main.transform.position);
                     Debug.Log($"플레이어 이동속도 : {playerMove.Speed}");
                     break;
                 }
@@ -91,6 +94,7 @@ public class Item : MonoBehaviour
                     PlayerFire playerFire = other.GetComponent<PlayerFire>();
                     playerFire.AtkSpeedUp(_atkSpeedUpValue);
                     SpawnItemEffect(other.transform.position);
+                    AudioSource.PlayClipAtPoint(_pickupSound, Camera.main.transform.position);
                     Debug.Log($"플레이어 공속 : {playerFire.CoolTimeAtkSpeed}");
                     break;
                 }

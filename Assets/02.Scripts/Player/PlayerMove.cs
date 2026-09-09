@@ -17,14 +17,14 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private float _maxMoveSpeed;
 
-    private TrailRenderer _trailRenderer;
+    private TrailRenderer[] _trailRenderers;
 
     // 객체가 생성될 때 한 번 실행 된다.
     private void Awake()
     {
         // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
         _animator = GetComponent<Animator>();
-        _trailRenderer = GetComponentInChildren<TrailRenderer>();
+        _trailRenderers = GetComponentsInChildren<TrailRenderer>();
     }
 
     // 매 프레임마다 실행된다.
@@ -104,16 +104,25 @@ public class PlayerMove : MonoBehaviour
         if (newPosition.x > maxX)
         {
             transform.position = new Vector2(minX, newPosition.y);
-            _trailRenderer.Clear();
+            ClearAllTrails();
             return;
         }
         else if (newPosition.x < minX)
         {
             transform.position = new Vector2(maxX, newPosition.y);
-            _trailRenderer.Clear();
+            ClearAllTrails();
             return;
         }
 
         transform.position = newPosition;
+    }
+
+    // 트레일 경계면 늘어짐 버그 수정용
+    private void ClearAllTrails()
+    {
+        for (int i = 0; i < _trailRenderers.Length; i++)
+        {
+            _trailRenderers[i].Clear();
+        }
     }
 }

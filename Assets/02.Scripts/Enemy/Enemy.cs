@@ -76,7 +76,6 @@ public abstract class Enemy : MonoBehaviour
         }
 
         player.TakeDamage(_defaultDamage);
-
         Destroy(gameObject);
     }
 }

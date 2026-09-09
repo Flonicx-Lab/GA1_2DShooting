@@ -14,6 +14,8 @@ public abstract class Enemy : MonoBehaviour
     // 죽을 때 생성할 이펙트 프리팹
     [SerializeField] private GameObject _deatheffectPrefab;
 
+    [SerializeField] private GameObject _hitEffectPrefab;
+
 
     private void Awake()
     {
@@ -30,6 +32,12 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
+
+        if (_hitEffectPrefab != null)
+        {
+            Instantiate(_hitEffectPrefab, transform.position, Quaternion.identity);
+        }
+
         if (_health <= 0)
         {
             EnemyDie();

@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Bomb : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 6f;
     [SerializeField] private float _deceleration = 0.5f;
+    [SerializeField] private int _bombDamage = 150;
     [SerializeField] private float _hitStopTime;
 
     private Animator _animator;
@@ -35,12 +37,18 @@ public class Bomb : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("충돌 시점 속도: " + _moveSpeed + " / 정지시간: " + _hitStopTime);
             // 직격타만 역경직 발동
             if (_moveSpeed > 0f)
             {
                 StartCoroutine(HitStopRoutine(_hitStopTime));
             }
+
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(_bombDamage);
+            }
+
 
             Destroy(other.gameObject);
             Explode();

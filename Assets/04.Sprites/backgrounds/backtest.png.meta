@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 869425d39017c154889ca9daa64de07c
+guid: eb59bf806218dba44ab8fcc5fbf1dab2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7610918132340517474
-    second: backgroundLoop_0
+      213: -2046972113594814165
+    second: backtest_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 182
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: backgroundLoop_0
+      name: backtest_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 863
-        height: 1822
+        width: 1536
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9593437846906690800000000000000
-      internalID: -7610918132340517474
+      spriteID: b21fc0045b1b793e0800000000000000
+      internalID: -2046972113594814165
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      backgroundLoop_0: -7610918132340517474
+      backtest_0: -2046972113594814165
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

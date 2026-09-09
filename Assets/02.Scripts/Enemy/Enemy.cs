@@ -4,6 +4,10 @@ public abstract class Enemy : MonoBehaviour
 {
     protected GameObject _player;
     private Animator _animator;
+
+    // Todo: 에너미가 공격 당할 때 재생시켜주는 피격 사운드
+    private AudioSource _damagedAudioSource;
+
     [SerializeField] protected float _moveSpeed;
     [SerializeField] private int _health = 100;
     [SerializeField] protected int _defaultDamage = 30; // 값 자체는 숨기기
@@ -20,6 +24,7 @@ public abstract class Enemy : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _damagedAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -32,6 +37,11 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
+
+        if (_damagedAudioSource != null)
+        {
+            _damagedAudioSource.Play();
+        }
 
         if (_hitEffectPrefab != null)
         {

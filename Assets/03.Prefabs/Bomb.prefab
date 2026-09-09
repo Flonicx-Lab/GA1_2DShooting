@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   _moveSpeed: 6
   _deceleration: 4
-  _explosionDuration: 3
+  _hitStopTime: 0.05
 --- !u!58 &-634923634582678315
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Item : MonoBehaviour
     private const float MoveSpeed = 5f;
 
     private Player _player;
+    private AudioSource _itemAudioSource;
 
     [SerializeField] private GameObject _itemEffectPrefab;
 
@@ -21,6 +22,7 @@ public class Item : MonoBehaviour
         if (playerObj != null)
         {
             _player = playerObj.GetComponent<Player>();
+            _itemAudioSource = this.GetComponent<AudioSource>();
         }
 
 

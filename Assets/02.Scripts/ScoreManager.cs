@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -13,6 +12,9 @@ public class ScoreManager : MonoBehaviour
     private int _bestScore;
     private int _currentScore = 0;
     private int _lastRefreshScore = -1;
+
+    // 저장 키
+    private const string SaveKey = "BestScore";
 
     // UI 책임 추가
     [SerializeField] private TextMeshProUGUI _bestScoreTextUI;
@@ -31,8 +33,20 @@ public class ScoreManager : MonoBehaviour
         _instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
+        // 입력: Input.
+        // 저장/불러오기: PlayerPrefs
+        // Get,Set,Has,Save 시리즈만 외우면 됨
+        if (PlayerPrefs.HasKey(SaveKey))
+        {
+            _bestScore = PlayerPrefs.GetInt(SaveKey);
+        }
+
+
+        // _bestScore = PlayerPrefs.GetInt(SaveKey, 0);
+
+
         Refresh();
     }
 
@@ -44,16 +58,18 @@ public class ScoreManager : MonoBehaviour
         if (_currentScore > _bestScore)
         {
             _bestScore = _currentScore;
+            // 저장: Set~ 시리즈를 이용해서 int/float/string을 저장 가능하다.
+            // 내 컴퓨터 어딘가에 저장이 된다.
+            PlayerPrefs.SetInt(SaveKey, _bestScore);
+            PlayerPrefs.Save();
         }
+
+        Refresh();
     }
 
     private void Refresh()
     {
-        if (_lastRefreshScore == _currentScore) return;
-
         _bestScoreTextUI.text = $"Best Score: {_bestScore}";
         _currentScoreTextUI.text = $"Score: {_currentScore}";
-
-        _lastRefreshScore = _currentScore;
     }
 }

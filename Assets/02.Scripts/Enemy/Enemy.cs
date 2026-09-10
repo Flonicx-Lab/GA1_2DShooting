@@ -84,8 +84,11 @@ public abstract class Enemy : MonoBehaviour
 
     private void UpdateScore()
     {
-        ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
-        scoreManager.AddScore(100);
+        // 싱글톤 패턴
+        // 전역적으로 누구를 뜻하는지 안다.
+        // 그 누구가 한명인 것을 안다.
+
+        ScoreManager.Instance.AddScore(100);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -18,6 +18,13 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
+        // 하나 이상은 금지
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 

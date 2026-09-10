@@ -8,8 +8,24 @@ public class ClassPlayerAutoMove : MonoBehaviour
     private void Update()
     {
         // 1. 타겟을 구한다.
-        GameObject target = GameObject.FindWithTag("Enemy");
-        if (target != null) return;
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+        if (targets.Length == 0) return;
+
+        GameObject target = targets[0];
+        float minDistance = float.MaxValue;
+
+        foreach (GameObject enemy in targets)
+        {
+            //거리를 구함
+            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distance < minDistance) // 저장된 거리보다 짧다면
+            {
+                //타겟 변경
+                minDistance = distance;
+                target = enemy;
+            }
+        }
+
 
         // 2. 방향을 구한다.
         Vector3 direction = target.transform.position - transform.position;

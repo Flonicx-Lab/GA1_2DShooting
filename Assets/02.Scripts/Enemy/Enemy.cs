@@ -78,7 +78,14 @@ public abstract class Enemy : MonoBehaviour
     {
         SpawnItem();
         SpawnDeathEffect();
+        UpdateScore();
         Destroy(gameObject);
+    }
+
+    private void UpdateScore()
+    {
+        ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
+        scoreManager.AddScore(100);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

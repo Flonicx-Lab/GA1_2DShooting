@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     private int _bestScore;
     private int _currentScore = 0;
-    private int _lastRefreshScore = -1;
+    private bool _isscoreDirty = false; // 더티 플래그 선언
 
     // 저장 키
     private const string SaveKey = "BestScore";
@@ -19,7 +19,6 @@ public class ScoreManager : MonoBehaviour
     // UI 책임 추가
     [SerializeField] private TextMeshProUGUI _bestScoreTextUI;
     [SerializeField] private TextMeshProUGUI _currentScoreTextUI;
-
 
     private void Awake()
     {
@@ -43,10 +42,6 @@ public class ScoreManager : MonoBehaviour
             _bestScore = PlayerPrefs.GetInt(SaveKey);
         }
 
-
-        // _bestScore = PlayerPrefs.GetInt(SaveKey, 0);
-
-
         Refresh();
     }
 
@@ -58,13 +53,27 @@ public class ScoreManager : MonoBehaviour
         if (_currentScore > _bestScore)
         {
             _bestScore = _currentScore;
+        }
+
+        _isscoreDirty = true;
+    }
+
+    private void LateUpdate() // 마무리청소!
+    {
+        if (_isscoreDirty)
+        {
+            // 텍스트 갱신
+            Refresh();
+
+            // 디스크 세이브
             // 저장: Set~ 시리즈를 이용해서 int/float/string을 저장 가능하다.
             // 내 컴퓨터 어딘가에 저장이 된다.
             PlayerPrefs.SetInt(SaveKey, _bestScore);
             PlayerPrefs.Save();
-        }
 
-        Refresh();
+            // 깃발 내림 (무거운 연산 끝)
+            _isscoreDirty = false;
+        }
     }
 
     private void Refresh()

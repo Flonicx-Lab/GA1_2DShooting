@@ -1,10 +1,12 @@
 using TMPro;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     // 싱글톤 -> 전역적으로 접근 가능, 단 하나의 인스턴스
-    public static ScoreManager Instance { get; private set; }
+    private static ScoreManager _instance;
+    public static ScoreManager Instance => _instance;
 
     // 관리 : 특정 데이터에 대한 무결성과 생성,읽기,수정,삭제 등과 관련된 로직
 
@@ -25,7 +27,7 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
-        Instance = this;
+        _instance = this;
     }
 
     private void Update()

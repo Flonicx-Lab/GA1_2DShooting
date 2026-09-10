@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AutoMove : MonoBehaviour
+public class PlayerAutoMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 6f;
     [SerializeField] private float _ignoreDistance = 1.5f;

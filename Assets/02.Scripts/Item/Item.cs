@@ -81,7 +81,6 @@ public class Item : MonoBehaviour
 
             case ItemType.MoveSpeedUp:
                 {
-                    break;
                     PlayerMove playerMove = other.GetComponent<PlayerMove>();
                     playerMove.SpeedUp(_moveSpeedUpValue);
                     SpawnItemEffect(other.transform.position);

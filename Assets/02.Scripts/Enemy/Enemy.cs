@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject _hitEffectPrefab;
 
+    [SerializeField] private ItemSpawnDataTableSO _spawnItemDataTable;
 
     private void Awake()
     {
@@ -68,10 +69,35 @@ public abstract class Enemy : MonoBehaviour
 
     private void SpawnItem()
     {
-        if (Random.Range(0, 100) > 30) return;
+        if (_spawnItemDataTable == null || _spawnItemDataTable.Datas == null ||
+            _spawnItemDataTable.Datas.Length == 0)
+        {
+            Debug.Log("아이템 스폰 데이터 테이블이 연결되지 않았습니다.");
+            return;
+        }
 
-        Instantiate(_itemPrefabs[Random.Range(0, _itemPrefabs.Length)], transform.position,
-            Quaternion.identity);
+        int totalWeight = 0;
+        foreach (ItemSpawnData data in _spawnItemDataTable.Datas)
+        {
+            totalWeight += data.Weight;
+        }
+
+        int randomWeight = Random.Range(0, totalWeight);
+
+        int cumulativeWeight = 0;
+        foreach (ItemSpawnData data in _spawnItemDataTable.Datas)
+        {
+            cumulativeWeight += data.Weight;
+
+            if (cumulativeWeight > randomWeight)
+            {
+                if (data.ItemPrefab != null)
+                {
+                    Instantiate(data.ItemPrefab, transform.position, Quaternion.identity);
+                    break;
+                }
+            }
+        }
     }
 
     public void EnemyDie()

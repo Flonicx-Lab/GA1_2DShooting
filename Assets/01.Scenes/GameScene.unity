@@ -1728,6 +1728,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1942327789984389936, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
     - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].Weight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].Weight
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].Weight
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
       propertyPath: _spawnDatas.Array.data[0].Percent
       value: 20
       objectReference: {fileID: 0}
@@ -2322,6 +2334,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].Weight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].Weight
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].Weight
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
       propertyPath: _spawnDatas.Array.data[0].Percent
       value: 20
       objectReference: {fileID: 0}
@@ -2563,9 +2587,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2029201907
+  m_SortingLayer: -1
+  m_SortingOrder: -3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5183756314255143157, guid: d7e7cf15d0c8ac3488c7fc79fe7e66fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3081,9 +3105,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2029201907
+  m_SortingLayer: -1
+  m_SortingOrder: -3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5183756314255143157, guid: d7e7cf15d0c8ac3488c7fc79fe7e66fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3550,6 +3574,18 @@ PrefabInstance:
       propertyPath: '_enemyPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 1942327789984389936, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].Weight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].Weight
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].Weight
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
       propertyPath: _spawnDatas.Array.data[0].Percent
       value: 20

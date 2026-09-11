@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 6709161468968031888, guid: 014166f72f6d6ba4babefaeace12306d, type: 3}
   _deatheffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
   _hitEffectPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  _spawnItemDataTable: {fileID: 11400000, guid: c1554575985b5924eaca7b82536d6009, type: 2}
 --- !u!212 &4000501470362565348
 SpriteRenderer:
   serializedVersion: 2

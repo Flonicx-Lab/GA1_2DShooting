@@ -2794,6 +2794,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715469931}
   m_CullTransparentMesh: 1
+--- !u!1 &1729092064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729092066}
+  - component: {fileID: 1729092065}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1729092065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729092064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd075fe53d686a745aacdf46d20b4630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletPool
+  _bulletPrefabs:
+  - {fileID: 1459658619015082647, guid: 2b7fd57ee6b4a424a9a9376acf3b5bb8, type: 3}
+  - {fileID: 8135086968223556473, guid: 11c439fd3671850419dc8ab6935d8713, type: 3}
+  _poolSize: 30
+--- !u!4 &1729092066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729092064}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.49871, y: 2.58373, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781624481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3632,3 +3680,4 @@ SceneRoots:
   - {fileID: 822261727}
   - {fileID: 2063962967}
   - {fileID: 881930152}
+  - {fileID: 1729092066}

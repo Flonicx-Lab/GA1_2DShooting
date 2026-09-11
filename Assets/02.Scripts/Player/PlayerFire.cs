@@ -20,10 +20,8 @@ public class PlayerFire : MonoBehaviour
     public float CoolTimeAtkSpeed => _coolTime;
     private float _maxAtkSpeed = 0.1f;
 
-
     // - 오토 모드
     public bool AutoFireMode = false;
-
 
     private void Start()
     {
@@ -70,16 +68,14 @@ public class PlayerFire : MonoBehaviour
 
     private void Fire()
     {
-        // 2. 총알 프리팹을 생성한다.
-        // Instantiate는 프리팹을 복사해서 (Monobehaviour를 상속받는)게임 오브젝트를 생성하고 씬에 넣어주는 기능
-        GameObject leftBullet = Instantiate(BulletPrefab);
-        leftBullet.transform.position = LeftFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
+        Bullet leftBullet = BulletPool.Instance.GetBullet(BulletType.Main);
+        leftBullet.transform.position = LeftFirePoint.position;
 
-        GameObject rightBullet = Instantiate(BulletPrefab);
-        rightBullet.transform.position = RightFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
+        Bullet rightBullet = BulletPool.Instance.GetBullet(BulletType.Main);
+        rightBullet.transform.position = RightFirePoint.position;
 
-        GameObject subBulletRight = Instantiate(SubBulletPrefab);
-        GameObject subBulletLeft = Instantiate(SubBulletPrefab);
+        Bullet subBulletRight = BulletPool.Instance.GetBullet(BulletType.Sub);
+        Bullet subBulletLeft = BulletPool.Instance.GetBullet(BulletType.Sub);
 
         subBulletRight.transform.position = RightSubFirePointTransform.position;
         subBulletLeft.transform.position = LeftSubFirePointTransform.position;

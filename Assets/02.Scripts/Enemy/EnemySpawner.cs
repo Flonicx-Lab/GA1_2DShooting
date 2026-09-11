@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _spawnInterval = 3f;
     private float _timer;
 
+    // csv 텍스트 파일 참조
     [SerializeField] private EnemySpawnDataTableSO _enemySpawnDataTable;
 
     private void Update()

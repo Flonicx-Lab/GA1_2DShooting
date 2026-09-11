@@ -1708,6 +1708,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8710615897145331209, guid: 82a094b51832d0540986bdee2fdf5497, type: 3}
     - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
       propertyPath: _enemyPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1723,6 +1727,30 @@ PrefabInstance:
       propertyPath: '_enemyPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 1942327789984389936, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].Percent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].Percent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].Percent
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 82a094b51832d0540986bdee2fdf5497, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 64da537a8b92c30419e6c41845c6d027, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1880,8 +1908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98de6f0289d3ad140ac70dff2e57c571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  _bestScoreTextUI: {fileID: 0}
-  _currentScoreTextUI: {fileID: 0}
+  _bestScoreTextUI: {fileID: 1021488968}
+  _currentScoreTextUI: {fileID: 1715469933}
 --- !u!4 &881930152
 Transform:
   m_ObjectHideFlags: 0
@@ -1931,7 +1959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210.3, y: -95.3}
+  m_AnchoredPosition: {x: 284, y: -95.30005}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021488968
@@ -1988,7 +2016,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2286,9 +2314,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8710615897145331209, guid: 82a094b51832d0540986bdee2fdf5497, type: 3}
     - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
       propertyPath: _enemyPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].Percent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].Percent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].Percent
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 82a094b51832d0540986bdee2fdf5497, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 64da537a8b92c30419e6c41845c6d027, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2611,7 +2667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 131.1, y: -174.9}
+  m_AnchoredPosition: {x: 284, y: -174.90002}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715469933
@@ -2668,7 +2724,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3402,23 +3458,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &2128323509 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 31305452208520131, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
-  m_PrefabInstance: {fileID: 644593681315365322}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2128323512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128323509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdc6744f36db0c642bb4bcf49cb5dc16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AwakeTest
 --- !u!1001 &644593681315365322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3492,6 +3531,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8710615897145331209, guid: 82a094b51832d0540986bdee2fdf5497, type: 3}
     - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
       propertyPath: _enemyPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -3507,13 +3550,34 @@ PrefabInstance:
       propertyPath: '_enemyPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 1942327789984389936, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].Percent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].Percent
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].Percent
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[0].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 82a094b51832d0540986bdee2fdf5497, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[1].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 64da537a8b92c30419e6c41845c6d027, type: 3}
+    - target: {fileID: 6648463800942484274, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
+      propertyPath: _spawnDatas.Array.data[2].EnemyPrefab
+      value: 
+      objectReference: {fileID: 1048914334709311014, guid: 8d3a6e9f6bb66a74193e07233d869153, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 31305452208520131, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2128323512}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6a2b712124270d4d801ef5a90b4a577, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

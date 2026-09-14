@@ -19,7 +19,7 @@ public class UI_AutoButton : MonoBehaviour
     private void Start()
     {
         _myImage = GetComponent<Image>();
-        _player = FindObjectOfType<Player>();
+        _player = FindFirstObjectByType<Player>();
         AutoToggle();
     }
 
@@ -27,9 +27,12 @@ public class UI_AutoButton : MonoBehaviour
     {
         _autoMode = !_autoMode;
 
-        _player.GetComponent<PlayerFire>().SetAuto(_autoMode);
-        _player.GetComponent<PlayerMove>().enabled = !_autoMode;
-        _player.GetComponent<PlayerAutoMove>().enabled = _autoMode;
+        if (_player != null)
+        {
+            _player.GetComponent<PlayerFire>().SetAuto(_autoMode);
+            _player.GetComponent<PlayerMove>().enabled = !_autoMode;
+            _player.GetComponent<PlayerAutoMove>().enabled = _autoMode;
+        }
 
         _myImage.sprite = _autoMode ? _onSprite : _offSprite;
     }

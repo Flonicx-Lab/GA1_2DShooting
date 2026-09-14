@@ -49,7 +49,9 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
 
-            enemy.TakeDamage(_bulletDamage);
+            int finalDamage = _bulletDamage + (int)UpgradeManager.Instance.Upgrades[0].CurrentValue;
+
+            enemy.TakeDamage(finalDamage);
         }
     }
 

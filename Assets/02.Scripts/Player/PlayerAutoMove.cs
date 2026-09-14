@@ -8,7 +8,6 @@ public class PlayerAutoMove : MonoBehaviour
     private Enemy[] _enemies;
     private GameObject _player;
 
-
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -26,8 +25,9 @@ public class PlayerAutoMove : MonoBehaviour
 
     private void MoveTowardsTargetX(float targetX)
     {
+        float finalSpeed = _moveSpeed + UpgradeManager.Instance.Upgrades[1].CurrentValue;
         float CurrentX = _player.transform.position.x;
-        float newX = Mathf.MoveTowards(CurrentX, targetX, _moveSpeed * Time.deltaTime);
+        float newX = Mathf.MoveTowards(CurrentX, targetX, finalSpeed * Time.deltaTime);
 
         _player.transform.position = new Vector3(newX, transform.position.y, transform.position.z);
     }
@@ -36,7 +36,6 @@ public class PlayerAutoMove : MonoBehaviour
     // 타겟의 거리가 너무 가까우면 안된다.
     // 그러나 가장 가까운 타겟을 찾는다.
     // 타겟들의 거리를 계산한다.
-
 
     private Enemy FindBestTarget()
     {

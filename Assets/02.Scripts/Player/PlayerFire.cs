@@ -40,7 +40,13 @@ public class PlayerFire : MonoBehaviour
             Fire();
 
             // 3. 쿨타이머 초기화
-            _coolTimer = _coolTime;
+            float finalCoolTime = _coolTime - UpgradeManager.Instance.Upgrades[2].CurrentValue;
+            if (finalCoolTime < _maxAtkSpeed)
+            {
+                finalCoolTime = _maxAtkSpeed;
+            }
+
+            _coolTimer = finalCoolTime;
         }
     }
 

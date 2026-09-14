@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour
     private int _bestScore;
     private int _currentScore = 0;
     private bool _isscoreDirty = false; // 더티 플래그 선언
+    public int Score => _currentScore;
 
     // 저장 키
     private const string SaveKey = "BestScore";
@@ -42,6 +43,12 @@ public class ScoreManager : MonoBehaviour
             _bestScore = PlayerPrefs.GetInt(SaveKey);
         }
 
+        Refresh();
+    }
+
+    public void SpendScore(int amount)
+    {
+        _currentScore -= amount;
         Refresh();
     }
 

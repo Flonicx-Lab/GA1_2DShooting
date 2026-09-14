@@ -8,7 +8,6 @@ public class UI_ButtonClick : MonoBehaviour
 
     [Header("클릭시 애니메이션")]
     [SerializeField] private AnimationCurve _bumpCurve;
-    private float _scale = 1.0f;
     private bool _isBumping = false;
     private float _elapsedTime = 0.0f;
     private const float BumpDuration = 0.3f;

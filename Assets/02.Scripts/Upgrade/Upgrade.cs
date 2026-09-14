@@ -22,6 +22,7 @@ public class Upgrade
     private int _cost;
     public int Cost => _cost;
 
+    // 쓰이는데 없음
     public Upgrade(string name, float defaultValue, float increaseValue, float defaultCost, int level)
     {
         _name = name;
@@ -29,8 +30,6 @@ public class Upgrade
         _defaultValue = defaultValue;
         _increaseValue = increaseValue;
         _increaseCost = defaultCost;
-
-        LevelUp();
     }
 
     public void LevelUp()

@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 49657256}
   - component: {fileID: 49657259}
   - component: {fileID: 49657261}
-  - component: {fileID: 49657263}
   - component: {fileID: 49657262}
   m_Layer: 6
   m_Name: Player
@@ -519,21 +518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AutoMove
   _moveSpeed: 6
   _ignoreDistance: 1.5
---- !u!114 &49657263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49657251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffbd2a209a2ca9c46969e69ec6e74407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClassPlayerAutoMove
-  _speed: 5
-  _target: {fileID: 0}
-  _stopTrackingY: -2
 --- !u!1 &56311672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,7 +1889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &636827067
 Transform:
   m_ObjectHideFlags: 0
@@ -2227,6 +2211,7 @@ GameObject:
   - component: {fileID: 768154325}
   - component: {fileID: 768154324}
   - component: {fileID: 768154323}
+  - component: {fileID: 768154327}
   m_Layer: 5
   m_Name: UpgradeButtonAtk
   m_TagString: Untagged
@@ -2325,7 +2310,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 768154325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 768154327}
+        m_TargetAssemblyTypeName: UI_Upgrade, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &768154325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2364,6 +2361,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768154321}
   m_CullTransparentMesh: 1
+--- !u!114 &768154327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768154321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bba9db17b1eeb47b5b2c74e6c8d1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Upgrade
+  _index: 0
+  _button: {fileID: 768154324}
+  _titleText: {fileID: 1841823051}
+  _valueText: {fileID: 1719525540}
+  _scoreCostText: {fileID: 982562434}
 --- !u!1 &820904964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,6 +2391,7 @@ GameObject:
   - component: {fileID: 820904968}
   - component: {fileID: 820904967}
   - component: {fileID: 820904966}
+  - component: {fileID: 820904970}
   m_Layer: 5
   m_Name: UpgradeButtonAtkSpeed
   m_TagString: Untagged
@@ -2475,7 +2490,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 820904968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 820904970}
+        m_TargetAssemblyTypeName: UI_Upgrade, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &820904968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2514,6 +2541,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820904964}
   m_CullTransparentMesh: 1
+--- !u!114 &820904970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820904964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bba9db17b1eeb47b5b2c74e6c8d1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Upgrade
+  _index: 2
+  _button: {fileID: 820904967}
+  _titleText: {fileID: 666206342}
+  _valueText: {fileID: 1471246338}
+  _scoreCostText: {fileID: 1052153931}
 --- !u!1 &822261723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,7 +3328,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7492ddef0e9e13b4ea5199907254a09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
-  upgrades: []
+  _upgrades:
+  - _name: Atk
+    _defaultValue: 1
+    _increaseValue: 1
+    _defaultCost: 100
+    _increaseCost: 1.1
+  - _name: Speed
+    _defaultValue: 0.005
+    _increaseValue: 0.005
+    _defaultCost: 1000
+    _increaseCost: 1.2
+  - _name: AtkSpeed
+    _defaultValue: 0.1
+    _increaseValue: 0.1
+    _defaultCost: 1000
+    _increaseCost: 1.2
+  _uiUpgrades:
+  - {fileID: 768154327}
+  - {fileID: 820904970}
+  - {fileID: 1529449648}
 --- !u!4 &1239258194
 Transform:
   m_ObjectHideFlags: 0
@@ -3981,6 +4044,7 @@ GameObject:
   - component: {fileID: 1529449646}
   - component: {fileID: 1529449645}
   - component: {fileID: 1529449644}
+  - component: {fileID: 1529449648}
   m_Layer: 5
   m_Name: UpgradeButtonSpeed
   m_TagString: Untagged
@@ -4079,7 +4143,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1529449646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1529449648}
+        m_TargetAssemblyTypeName: UI_Upgrade, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1529449646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4118,6 +4194,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529449642}
   m_CullTransparentMesh: 1
+--- !u!114 &1529449648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529449642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bba9db17b1eeb47b5b2c74e6c8d1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Upgrade
+  _index: 1
+  _button: {fileID: 1529449645}
+  _titleText: {fileID: 1334308478}
+  _valueText: {fileID: 2061656464}
+  _scoreCostText: {fileID: 1318419941}
 --- !u!1 &1537799814
 GameObject:
   m_ObjectHideFlags: 0

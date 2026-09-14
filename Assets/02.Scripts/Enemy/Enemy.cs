@@ -93,7 +93,16 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (data.ItemPrefab != null)
                 {
-                    Instantiate(data.ItemPrefab, transform.position, Quaternion.identity);
+                    Item bulletComponent = data.ItemPrefab.GetComponent<Item>();
+                    if (bulletComponent != null)
+                    {
+                        Item bullet = ItemPool.Instance.GetItem(bulletComponent.Type);
+                        if (bullet != null)
+                        {
+                            bullet.transform.position = transform.position;
+                        }
+                    }
+
                     break;
                 }
             }

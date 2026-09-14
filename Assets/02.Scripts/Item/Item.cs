@@ -3,6 +3,8 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] private ItemType _type;
+    public ItemType Type => _type;
+
     [SerializeField] private float _healValue;
     [SerializeField] private float _moveSpeedUpValue;
     [SerializeField] private float _atkSpeedUpValue;
@@ -100,6 +102,6 @@ public class Item : MonoBehaviour
                 }
         }
 
-        Destroy(gameObject);
+        ItemPool.Instance.ReleaseItem(this);
     }
 }

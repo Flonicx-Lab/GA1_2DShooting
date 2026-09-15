@@ -16,7 +16,7 @@ public class PlayerBomb : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (SimpleInput.GetButton("Bomb"))
             {
                 Debug.Log($"재사용 대기시간 {_bombTimer}");
             }
@@ -25,7 +25,7 @@ public class PlayerBomb : MonoBehaviour
 
     private void FireBomb()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (SimpleInput.GetButton("Bomb"))
         {
             Instantiate(_bombPrefab, transform.position, Quaternion.identity);
             _bombTimer = 10f;

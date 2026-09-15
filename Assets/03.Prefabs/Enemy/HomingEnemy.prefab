@@ -50,8 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
   _damagedAudioSource: {fileID: 5050420683495915739}
-  _moveSpeed: 2
+  _baseHealth: 70
   _health: 80
+  _moveSpeed: 2
   _defaultDamage: 30
   _itemPrefabs:
   - {fileID: 5103562681996265340, guid: cd60c87161d52364e8399430f8bf00a5, type: 3}

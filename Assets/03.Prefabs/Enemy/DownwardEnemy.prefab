@@ -50,8 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DownwardEnemy
   _damagedAudioSource: {fileID: -1604073095996201519}
-  _moveSpeed: 2
+  _baseHealth: 100
   _health: 150
+  _moveSpeed: 2
   _defaultDamage: 30
   _itemPrefabs:
   - {fileID: 5103562681996265340, guid: cd60c87161d52364e8399430f8bf00a5, type: 3}

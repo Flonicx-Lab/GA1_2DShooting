@@ -8,8 +8,10 @@ public abstract class Enemy : MonoBehaviour
     // Todo: 에너미가 공격 당할 때 재생시켜주는 피격 사운드
     [SerializeField] AudioSource _damagedAudioSource;
 
+    [SerializeField] private int _baseHealth; // 에너미의 기준체력
+    [SerializeField] private int _health = 100; // 적의 현재 체력
+
     [SerializeField] protected float _moveSpeed;
-    [SerializeField] private int _health = 100;
     [SerializeField] protected int _defaultDamage = 30; // 값 자체는 숨기기
     public int Damage => _defaultDamage; // 데미지 자체는 public으로
 
@@ -30,6 +32,12 @@ public abstract class Enemy : MonoBehaviour
     private void Update()
     {
         Move();
+    }
+
+    public void SetHealthBalance(float multiplier)
+    {
+        // 체력 초기화
+        _health = (int)(_baseHealth * multiplier);
     }
 
     protected abstract void Move();

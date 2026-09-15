@@ -1,4 +1,4 @@
-﻿[System.Serializable]
+﻿[System.Serializable] // 직렬화 중요
 public class UpgradeSaveData
 
 {

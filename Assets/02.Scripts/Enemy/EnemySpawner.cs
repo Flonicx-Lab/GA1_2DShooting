@@ -7,6 +7,22 @@ public class EnemySpawner : MonoBehaviour
 
     // csv 텍스트 파일 참조
     [SerializeField] private EnemySpawnDataTableSO _enemySpawnDataTable;
+    [SerializeField] private EnemyBalanceDataTableSO _enemyBalanceDataTable;
+
+    private float GetHealthMultiplier()
+    {
+        int bestScore = ScoreManager.Instance.BestScore;
+
+        foreach (EnemyBalanceData data in _enemyBalanceDataTable.Datas)
+        {
+            if (data.RequiredScore < bestScore)
+                return data.HealthMultiplier;
+        }
+
+        // 없다면 제일 마지막 값 반환
+        int lastIndex = _enemyBalanceDataTable.Datas.Length - 1;
+        return _enemyBalanceDataTable.Datas[lastIndex].HealthMultiplier;
+    }
 
     private void Update()
     {
@@ -52,6 +68,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject enemy = Instantiate(data.EnemyPrefab);
                 enemy.transform.position = transform.position;
+                enemy.GetComponent<Enemy>().SetHealthBalance(GetHealthMultiplier());
                 break;
             }
         }

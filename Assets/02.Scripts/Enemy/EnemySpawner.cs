@@ -5,23 +5,34 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _spawnInterval = 3f;
     private float _timer;
 
-    // csv 텍스트 파일 참조
     [SerializeField] private EnemySpawnDataTableSO _enemySpawnDataTable;
     [SerializeField] private EnemyBalanceDataTableSO _enemyBalanceDataTable;
 
     private float GetHealthMultiplier()
     {
+        if (_enemyBalanceDataTable == null || _enemyBalanceDataTable.Datas == null ||
+            _enemyBalanceDataTable.Datas.Length == 0)
+        {
+            return 1f;
+        }
+
+        if (ScoreManager.Instance == null)
+        {
+            return 1f;
+        }
+
         int bestScore = ScoreManager.Instance.BestScore;
+        float multiplier = 1f;
 
         foreach (EnemyBalanceData data in _enemyBalanceDataTable.Datas)
         {
-            if (data.RequiredScore > bestScore)
-                return data.HealthMultiplier;
+            if (bestScore >= data.RequiredScore)
+            {
+                multiplier = data.HealthMultiplier;
+            }
         }
 
-        // 없다면 제일 마지막 값 반환
-        int lastIndex = _enemyBalanceDataTable.Datas.Length - 1;
-        return _enemyBalanceDataTable.Datas[lastIndex].HealthMultiplier;
+        return multiplier;
     }
 
     private void Update()

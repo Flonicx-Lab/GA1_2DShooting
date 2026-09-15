@@ -67,8 +67,9 @@ public class UpgradeManager : MonoBehaviour
     {
         // 데이터 저장은 유의미한 정보만 저장한다.
         // 그래서 레벨만 저장
-        UpgradeSaveData saveData = new UpgradeSaveData(_upgrades.Length);
-        for (int i = 0; i < _upgrades.Length; i++)
+        int size = _upgrades.Length;
+        UpgradeSaveData saveData = new UpgradeSaveData(size);
+        for (int i = 0; i < size; i++)
         {
             saveData.Name[i] = _upgrades[i].Name;
             saveData.Level[i] = _upgrades[i].Level;

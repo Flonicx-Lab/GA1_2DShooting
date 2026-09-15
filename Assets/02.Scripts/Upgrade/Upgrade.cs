@@ -22,14 +22,11 @@ public class Upgrade
     private int _cost;
     public int Cost => _cost;
 
-    // 쓰이는데 없음
-    public Upgrade(string name, float defaultValue, float increaseValue, float defaultCost, int level)
+    public void SetLevel(int level)
     {
-        _name = name;
         _level = level;
-        _defaultValue = defaultValue;
-        _increaseValue = increaseValue;
-        _increaseCost = defaultCost;
+
+        Calculate();
     }
 
     public void LevelUp()

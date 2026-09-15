@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (EnemyBalanceData data in _enemyBalanceDataTable.Datas)
         {
-            if (data.RequiredScore < bestScore)
+            if (data.RequiredScore > bestScore)
                 return data.HealthMultiplier;
         }
 
